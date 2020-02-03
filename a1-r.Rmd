@@ -1,0 +1,385 @@
+---
+title: "apm466"
+author: "yaqi bi"
+date: "2020/1/30"
+output: html_document
+---
+4.a)
+```{r}
+data = read.csv('/Users/mac/Desktop/apm466a1/data.csv')
+library(jrvFinance)
+ytm_list = data.frame(matrix(ncol = 10,nrow =10))
+colnames(ytm_list) = c("can1.5mar20","can0.75sept20","can0.75mar21","can0.75sept21","can0.5mar22","can2.75jun22","can1.75mar23","can1.5jun23","can2.25mar24","can1.5sept24")
+rownames(ytm_list) = c("1","2","3","4","5","6","7","8","9","10")
+clean_price_matrix = matrix(ncol = 10, nrow = 10)
+#first bond
+col = 1
+for ( i in 1:10 ){
+  row = 1
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#second bond
+col = 1
+for ( i in 11:20 ){
+  row = 2
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#third bond
+col = 1
+for ( i in 21:30 ){
+  row = 3
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#forthbond
+col = 1
+for ( i in 31:40 ){
+  row = 4
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#fifthbond
+col = 1
+for ( i in 41:50 ){
+  row = 5
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#sixthbond
+col = 1
+for ( i in 51:60 ){
+  row = 6
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#seventhbond
+col = 1
+for ( i in 61:70 ){
+  row = 7
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#eightthbond
+col = 1
+for ( i in 71:80 ){
+  row = 8
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#ninethbond
+col = 1
+for ( i in 81:90 ){
+  row = 9
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#tenthbond
+col = 1
+for ( i in 91:100 ){
+  row = 10
+  coupon  = as.numeric(data$coupon[i]/100)
+  price = as.numeric(data$price[i])
+  settle=as.Date(data$date[i],format='%m/%d/%Y')
+  mature = as.Date(data$maturity[i],format='%m/%d/%Y')
+  ytm = bond.yield(settle, mature, coupon, freq = 2, price)
+  ytm_list[col,row] = ytm
+  clean_price_matrix[col,row] = price
+  col = col+1
+}
+#draw yield curve
+ytm_matrix = as.matrix(ytm_list)
+
+plot(ytm_matrix[1,],type = "b",col = 1,xlab = "periods",ylab="yield",main = "ytm curve",ylim=c(0.015,0.028))
+lines(ytm_matrix[2,],type = "b",col = 2)
+lines(ytm_matrix[3,],type = "b",col = 3)
+lines(ytm_matrix[4,],type = "b",col = 4)
+lines(ytm_matrix[5,],type = "b",col = 5)
+lines(ytm_matrix[6,],type = "b",col = 6)
+lines(ytm_matrix[7,],type = "b",col = 7)
+lines(ytm_matrix[8,],type = "b",col = 8)
+lines(ytm_matrix[9,],type = "b",col = 9)
+lines(ytm_matrix[10,],type = "b",col = 10)
+legend( "topright",legend = c("2020-01-02","2020-01-03","2020-01-06","2020-01-07","2020-01-08","2020-01-09","2020-01-10","2020-01-13","2020-01-14","2020-01-15"),col = c(1:10),lty=1, cex=0.8)
+```
+4b)
+spot curve
+```{r}
+#dirty price = accrued interest + clean price
+dirty_price_matrix = matrix(ncol = 10, nrow = 10)
+cf_matrix = matrix(ncol = 10, nrow = 10)
+spot_matrix = matrix(ncol = 10, nrow = 10)
+
+for(i in 1:10){
+dirty_price_matrix[i,1] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i,1]
+cf_matrix[i,1] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[1]
+T= yearFraction(as.Date(data$date[i],'%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+spot_matrix[i,1] = (-1/T)*log(dirty_price_matrix[i,1]/cf_matrix[i,1])
+}
+
+for(i in 11:20){
+dirty_price_matrix[i-10,2] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-10,2]
+cf_matrix[i-10,2] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[2]-100
+T1= yearFraction(as.Date(data$date[i-10],'%m/%d/%Y'),as.Date(data$maturity[i-10],format='%m/%d/%Y'),freq = 2)
+T2= yearFraction(as.Date(data$date[i],'%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+spot_matrix[i-10,2] = (-1/T2)*log((dirty_price_matrix[i-10,2]-cf_matrix[i-10,2]*(exp(-spot_matrix[i-10,1]*T1)))/(cf_matrix[i-10,2]+100))
+}
+
+for(i in 21:30){
+dirty_price_matrix[i-20,3] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-20,3]
+cf_matrix[i-20,3] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[3]-100
+T1 = yearFraction(as.Date(data$date[i-20],format='%m/%d/%Y'),as.Date(data$maturity[i-20],format='%m/%d/%Y'),freq = 2)
+T2 = yearFraction(as.Date(data$date[i-10],format='%m/%d/%Y'),as.Date(data$maturity[i-10],format='%m/%d/%Y'),freq = 2)
+T3= yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+spot_matrix[i-20,3] = (-1/T3)*log((dirty_price_matrix[i-20,3]-cf_matrix[i-20,3]*(exp(-spot_matrix[i-20,1]*T1)+exp(-spot_matrix[i-20,2]*T2)))/(cf_matrix[i-20,3]+100))
+}
+
+for(i in 31:40){
+dirty_price_matrix[i-30,4] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-30,4]
+cf_matrix[i-30,4] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[4]-100
+T1 = yearFraction(as.Date(data$date[i-30],format='%m/%d/%Y'),as.Date(data$maturity[i-30],format='%m/%d/%Y'),freq = 2)
+T2 = yearFraction(as.Date(data$date[i-20],format='%m/%d/%Y'),as.Date(data$maturity[i-20],format='%m/%d/%Y'),freq = 2)
+T3= yearFraction(as.Date(data$date[i-10],format='%m/%d/%Y'),as.Date(data$maturity[i-10],format='%m/%d/%Y'),freq = 2)
+T4= yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+spot_matrix[i-30,4] = (-1/T4)*log((dirty_price_matrix[i-30,4]-cf_matrix[i-30,4]*(exp(-spot_matrix[i-30,1]*T1)+exp(-spot_matrix[i-30,2]*T2)+exp(-spot_matrix[i-30,3]*T3)))/(cf_matrix[i-30,4]+100))
+}
+
+for(i in 41:50){
+dirty_price_matrix[i-40,5] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-40,5]
+cf_matrix[i-40,5] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[5]-100
+T1 = yearFraction(as.Date(data$date[i-40],format='%m/%d/%Y'),as.Date(data$maturity[i-40],format='%m/%d/%Y'),freq = 2)
+T2 = yearFraction(as.Date(data$date[i-30],format='%m/%d/%Y'),as.Date(data$maturity[i-30],format='%m/%d/%Y'),freq = 2)
+T3= yearFraction(as.Date(data$date[i-20],format='%m/%d/%Y'),as.Date(data$maturity[i-20],format='%m/%d/%Y'),freq = 2)
+T4= yearFraction(as.Date(data$date[i-10],format='%m/%d/%Y'),as.Date(data$maturity[i-10],format='%m/%d/%Y'),freq = 2)
+T5 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+spot_matrix[i-40,5] = (-1/T5)*log((dirty_price_matrix[i-40,5]-cf_matrix[i-40,5]*(exp(-spot_matrix[i-40,1]*T1)+exp(-spot_matrix[i-40,2]*T2)+exp(-spot_matrix[i-40,3]*T3)+exp(-spot_matrix[i-40,4]*T4)))/(cf_matrix[i-40,5]+100))
+}
+
+for(i in 51:60){
+dirty_price_matrix[i-50,6] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = "2022-09-01",coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-50,6]
+cf_matrix[i-50,6] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = "2022-09-01",coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[6]-100
+T1 = yearFraction(as.Date(data$date[i-50],format='%m/%d/%Y'),"2022-09-01",freq = 2)
+T2 = yearFraction(as.Date(data$date[i-40],format='%m/%d/%Y'),"2022-09-01",freq = 2)
+T3 = yearFraction(as.Date(data$date[i-30],format='%m/%d/%Y'),"2022-09-01",freq = 2)
+T4 = yearFraction(as.Date(data$date[i-20],format='%m/%d/%Y'),"2022-09-01",freq = 2)
+T5 = yearFraction(as.Date(data$date[i-10],format='%m/%d/%Y'),"2022-09-01",freq = 2)
+T6 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),"2022-09-01",freq = 2)
+spot_matrix[i-50,6] = (-1/T6)*log((dirty_price_matrix[i-50,6]-cf_matrix[i-50,6]*(exp(-spot_matrix[i-50,1]*T1)+exp(-spot_matrix[i-50,2]*T2)+exp(-spot_matrix[i-50,3]*T3)+exp(-spot_matrix[i-50,4]*T4)+exp(-spot_matrix[i-50,5]*T5)))/(cf_matrix[i-50,6]+100))
+}
+
+for(i in 61:70){
+dirty_price_matrix[i-60,7] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-60,7]
+cf_matrix[i-60,7] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[7]-100
+T1 = yearFraction(as.Date(data$date[i-60],format='%m/%d/%Y'),as.Date(data$maturity[i-60],format='%m/%d/%Y'),freq = 2)
+T2 = yearFraction(as.Date(data$date[i-50],format='%m/%d/%Y'),as.Date(data$maturity[i-50],format='%m/%d/%Y'),freq = 2)
+T3= yearFraction(as.Date(data$date[i-40],format='%m/%d/%Y'),as.Date(data$maturity[i-40],format='%m/%d/%Y'),freq = 2)
+T4= yearFraction(as.Date(data$date[i-30],format='%m/%d/%Y'),as.Date(data$maturity[i-30],format='%m/%d/%Y'),freq = 2)
+T5 = yearFraction(as.Date(data$date[i-20],format='%m/%d/%Y'),as.Date(data$maturity[i-20],format='%m/%d/%Y'),freq = 2)
+T6 = yearFraction(as.Date(data$date[i-10],format='%m/%d/%Y'),as.Date(data$maturity[i-10],format='%m/%d/%Y'),freq = 2)
+T7 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+spot_matrix[i-60,7] = (-1/T7)*log((dirty_price_matrix[i-60,7]-cf_matrix[i-60,7]*(exp(-spot_matrix[i-60,1]*T1)+exp(-spot_matrix[i-60,2]*T2)+exp(-spot_matrix[i-60,3]*T3)+exp(-spot_matrix[i-60,4]*T4)+exp(-spot_matrix[i-60,5]*T5)+exp(-spot_matrix[i-60,6]*T6)))/(cf_matrix[i-60,7]+100))
+}
+
+for(i in 71:80){
+dirty_price_matrix[i-70,8] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = "2023-09-01",coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-70,8]
+cf_matrix[i-70,8] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = "2023-09-01",coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[8]-100
+T1 = yearFraction(as.Date(data$date[i-70],format='%m/%d/%Y'),"2023-09-01",freq = 2)
+T2 = yearFraction(as.Date(data$date[i-60],format='%m/%d/%Y'),"2023-09-01",freq = 2)
+T3 = yearFraction(as.Date(data$date[i-50],format='%m/%d/%Y'),"2023-09-01",freq = 2)
+T4 = yearFraction(as.Date(data$date[i-40],format='%m/%d/%Y'),"2023-09-01",freq = 2)
+T5 = yearFraction(as.Date(data$date[i-30],format='%m/%d/%Y'),"2023-09-01",freq = 2)
+T6 = yearFraction(as.Date(data$date[i-20],format='%m/%d/%Y'),"2023-09-01",freq = 2)
+T7 = yearFraction(as.Date(data$date[i-10],format='%m/%d/%Y'),"2023-09-01",freq = 2)
+T8 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),"2023-09-01",freq = 2)
+spot_matrix[i-70,8] = (-1/T8)*log((dirty_price_matrix[i-70,8]-cf_matrix[i-70,8]*(exp(-spot_matrix[i-70,1]*T1)+exp(-spot_matrix[i-70,2]*T2)+exp(-spot_matrix[i-70,3]*T3)+exp(-spot_matrix[i-70,4]*T4)+exp(-spot_matrix[i-70,5]*T5)+exp(-spot_matrix[i-70,6]*T6)+exp(-spot_matrix[i-70,7]*T7)))/(cf_matrix[i-70,8]+100))
+}
+
+for(i in 81:90){
+dirty_price_matrix[i-80,9] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-80,9]
+cf_matrix[i-80,9] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[9]-100
+T1 = yearFraction(as.Date(data$date[i-80],format='%m/%d/%Y'),as.Date(data$maturity[i-80],format='%m/%d/%Y'),freq = 2)
+T2 = yearFraction(as.Date(data$date[i-70],format='%m/%d/%Y'),as.Date(data$maturity[i-70],format='%m/%d/%Y'),freq = 2)
+T3= yearFraction(as.Date(data$date[i-60],format='%m/%d/%Y'),as.Date(data$maturity[i-60],format='%m/%d/%Y'),freq = 2)
+T4= yearFraction(as.Date(data$date[i-50],format='%m/%d/%Y'),as.Date(data$maturity[i-50],format='%m/%d/%Y'),freq = 2)
+T5 = yearFraction(as.Date(data$date[i-40],format='%m/%d/%Y'),as.Date(data$maturity[i-40],format='%m/%d/%Y'),freq = 2)
+T6 = yearFraction(as.Date(data$date[i-30],format='%m/%d/%Y'),as.Date(data$maturity[i-30],format='%m/%d/%Y'),freq = 2)
+T7 = yearFraction(as.Date(data$date[i-20],format='%m/%d/%Y'),as.Date(data$maturity[i-20],format='%m/%d/%Y'),freq = 2)
+T8 = yearFraction(as.Date(data$date[i-10],format='%m/%d/%Y'),as.Date(data$maturity[i-10],format='%m/%d/%Y'),freq = 2)
+T9 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+spot_matrix[i-80,9] = (-1/T9)*log((dirty_price_matrix[i-80,9]-cf_matrix[i-80,9]*(exp(-spot_matrix[i-80,1]*T1)+exp(-spot_matrix[i-80,2]*T2)+exp(-spot_matrix[i-80,3]*T3)+exp(-spot_matrix[i-80,4]*T4)+exp(-spot_matrix[i-80,5]*T5)+exp(-spot_matrix[i-80,6]*T6)+exp(-spot_matrix[i-80,7]*T7)+exp(-spot_matrix[i-80,8]*T8)))/(cf_matrix[i-80,9]+100))
+}
+
+for(i in 91:100){
+dirty_price_matrix[i-90,10] = bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$accrued+ clean_price_matrix[i-90,10]
+cf_matrix[i-90,10] =  bond.TCF(settle=as.Date(data$date[i],format='%m/%d/%Y'),mature = as.Date(data$maturity[i],format='%m/%d/%Y'),coupon  = as.numeric(data$coupon[i]/100),freq = 2 )$cf[10]-100
+T1 = yearFraction(as.Date(data$date[i-90],format='%m/%d/%Y'),as.Date(data$maturity[i-90],format='%m/%d/%Y'),freq = 2)
+T2 = yearFraction(as.Date(data$date[i-80],format='%m/%d/%Y'),as.Date(data$maturity[i-80],format='%m/%d/%Y'),freq = 2)
+T3= yearFraction(as.Date(data$date[i-70],format='%m/%d/%Y'),as.Date(data$maturity[i-70],format='%m/%d/%Y'),freq = 2)
+T4= yearFraction(as.Date(data$date[i-60],format='%m/%d/%Y'),as.Date(data$maturity[i-60],format='%m/%d/%Y'),freq = 2)
+T5 = yearFraction(as.Date(data$date[i-50],format='%m/%d/%Y'),as.Date(data$maturity[i-50],format='%m/%d/%Y'),freq = 2)
+T6 = yearFraction(as.Date(data$date[i-40],format='%m/%d/%Y'),as.Date(data$maturity[i-40],format='%m/%d/%Y'),freq = 2)
+T7 = yearFraction(as.Date(data$date[i-30],format='%m/%d/%Y'),as.Date(data$maturity[i-30],format='%m/%d/%Y'),freq = 2)
+T8 = yearFraction(as.Date(data$date[i-20],format='%m/%d/%Y'),as.Date(data$maturity[i-20],format='%m/%d/%Y'),freq = 2)
+T9 = yearFraction(as.Date(data$date[i-10],format='%m/%d/%Y'),as.Date(data$maturity[i-10],format='%m/%d/%Y'),freq = 2)
+T10 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+spot_matrix[i-90,10] = (-1/T10)*log((dirty_price_matrix[i-90,10]-cf_matrix[i-90,10]*(exp(-spot_matrix[i-90,1]*T1)+exp(-spot_matrix[i-90,2]*T2)+exp(-spot_matrix[i-90,3]*T3)+exp(-spot_matrix[i-90,4]*T4)+exp(-spot_matrix[i-90,5]*T5)+exp(-spot_matrix[i-90,6]*T6)+exp(-spot_matrix[i-90,7]*T7)+exp(-spot_matrix[i-90,8]*T8)+exp(-spot_matrix[i-90,9]*T9)))/(cf_matrix[i-90,10]+100))
+}
+plot(spot_matrix[1,],type = "b",col = 1,xlab = "periods",ylab="spot",main = "spot curve",ylim=c(0.015,0.026),xlim=c(1,10))
+lines(spot_matrix[2,],type = "b",col = 2)
+lines(spot_matrix[3,],type = "b",col = 3)
+lines(spot_matrix[4,],type = "b",col = 4)
+lines(spot_matrix[5,],type = "b",col = 5)
+lines(spot_matrix[6,],type = "b",col = 6)
+lines(spot_matrix[7,],type = "b",col = 7)
+lines(spot_matrix[8,],type = "b",col = 8)
+lines(spot_matrix[9,],type = "b",col = 9)
+lines(spot_matrix[10,],type = "b",col = 10)
+legend( "topright",legend = c("2020-01-02","2020-01-03","2020-01-06","2020-01-07","2020-01-08","2020-01-09","2020-01-10","2020-01-13","2020-01-14","2020-01-15"),col = c(1:10),lty=1, cex=0.8)
+
+
+```
+
+4c)forward rate
+```{r}
+#choose 20200301; 20210301; 20220301; 20230301; 20240301 bond
+rate_matrix = matrix(ncol = 5, nrow = 10)
+forward_matrix = matrix(ncol = 4, nrow = 10)
+n = 0
+for (i in 1:5){
+  rate_matrix[1:10,i] = spot_matrix[1:10,i+n]
+  n = n+1
+}
+#1stbond
+for (i in 1:10){ 
+  T1 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+  T2 = yearFraction(as.Date(data$date[i+20],format='%m/%d/%Y'),as.Date(data$maturity[i+20],format='%m/%d/%Y'),freq = 2)
+  forward_matrix[i,1] = (T2*spot_matrix[i,3]-T1*spot_matrix[i,1])/(T2-T1)
+}
+#2ndbond
+for (i in 21:30){ 
+  T1 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+  T2 = yearFraction(as.Date(data$date[i+20],format='%m/%d/%Y'),as.Date(data$maturity[i+20],format='%m/%d/%Y'),freq = 2)
+  forward_matrix[i-20,2] = (T2*spot_matrix[i-20,5]-T1*spot_matrix[i-20,3])/(T2-T1)
+}
+#3rdbond
+for (i in 41:50){ 
+  T1 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+  T2 = yearFraction(as.Date(data$date[i+20],format='%m/%d/%Y'),as.Date(data$maturity[i+20],format='%m/%d/%Y'),freq = 2)
+  forward_matrix[i-40,3] = (T2*spot_matrix[i-40,7]-T1*spot_matrix[i-40,5])/(T2-T1)
+}
+#4thbond
+for (i in 61:70){ 
+  T1 = yearFraction(as.Date(data$date[i],format='%m/%d/%Y'),as.Date(data$maturity[i],format='%m/%d/%Y'),freq = 2)
+  T2 = yearFraction(as.Date(data$date[i+20],format='%m/%d/%Y'),as.Date(data$maturity[i+20],format='%m/%d/%Y'),freq = 2)
+  forward_matrix[i-60,4] = (T2*spot_matrix[i-60,9]-T1*spot_matrix[i-60,7])/(T2-T1)
+}
+plot(forward_matrix[1,],type = "b",col = 1,xlab = "periods",ylab="forward",main = "forward curve",ylim=c(0.014,0.017),xlim=c(1,5))
+lines(forward_matrix[2,],type = "b",col = 2)
+lines(forward_matrix[3,],type = "b",col = 3)
+lines(forward_matrix[4,],type = "b",col = 4)
+lines(forward_matrix[5,],type = "b",col = 5)
+lines(forward_matrix[6,],type = "b",col = 6)
+lines(forward_matrix[7,],type = "b",col = 7)
+lines(forward_matrix[8,],type = "b",col = 8)
+lines(forward_matrix[9,],type = "b",col = 9)
+lines(forward_matrix[10,],type = "b",col = 10)
+legend("topright",legend = c("01-02","01-03","01-06","01-07","01-08","01-09","01-10","01-13","01-14","01-15"),col = c(1:10),lty=1, cex=0.8)
+
+
+```
+5.
+```{r}
+#yield
+log_yield_matrix = matrix(ncol = 5,nrow = 9)
+new_matrix = matrix(ncol = 5, nrow = 10)
+n = 0
+for (i in 1:5){
+  new_matrix[1:10,i] = ytm_matrix[1:10,i+n]
+  n = n+1
+}
+
+for(j in 1:5){
+  num =0
+  while(num<10){
+    log_yield_matrix[num,j] = log(new_matrix[num+1,j]/new_matrix[num,j])
+    num= num+1
+  }
+}
+log_yield_cov = cov(log_yield_matrix)
+#forward
+frwd_cov = cov(forward_matrix)
+```
+6. eigenvalues and eigen vectors
+```{r}
+#yield curve
+yield_eigen_matrix = eigen(log_yield_cov)
+yield_evec = yield_eigen_matrix$vectors
+yield_eval = yield_eigen_matrix$value
+max(yield_eval)
+yield_evec[,1] 
+
+#forward curve
+frwd_eigen_matrix= eigen(frwd_cov)
+frwd_evec = frwd_eigen_matrix$vectors
+frwd_eval = frwd_eigen_matrix$value
+max(frwd_eval)
+frwd_evec[,1] 
+
+
+```
+
